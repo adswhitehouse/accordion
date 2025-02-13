@@ -54,52 +54,59 @@ select {
 
 body {
   font-family: "Abel", serif;
-  background: url(./images/lamps-7997033_1920.jpg) no-repeat center center / cover;
-}
-
-.content {
+  background: url(./images/lamps-7997033_1920.jpg) no-repeat center center /
+    cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 1rem;
 }
 
 .accordion {
+  width: 75%;
   background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
-  width: 75%;
 }
 
-.faq-title {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
+.question {
+  margin: 1rem 0 0.5rem 0;
+  border-bottom: 2px solid #000;
+  padding: 0.25rem;
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s;
+}
+
+.question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
 }
 
 h1 {
   text-align: center;
 }
 
-h2 {
-  font-weight: 400;
-  font-size: 1.5rem;
-}
-
-hr {
-  height: 0.1rem;
-  border: none;
-  background-color: #000;
-  margin-block: 0.5rem;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
+.qa-container .answer {
   font-size: 1.25rem;
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
 }
 
-.faq-text {
-  display: none;
+.qa-container.active .answer {
+  height: 10rem;
+}
+
+.qa-container.active .question {
+  font-size: 1.25rem;
+  transition: 0.5s;
+}
+
+.qa-container.active .question::after {
+  content: "-";
+  font-size: 2rem;
+  position: absolute;
+  right: 2px;
 }
